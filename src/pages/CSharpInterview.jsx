@@ -1,6 +1,7 @@
 import React from 'react';
 import { Collapse } from 'antd';
 import './CSharpFundamentals.css';
+import CSharpAdditionalQuestions from './CSharpAdditionalQuestions';
 
 const { Panel } = Collapse;
 
@@ -637,6 +638,8 @@ var adults = service.FilterUsers(u => u.Age >= 18);
 var activeUsers = service.FilterUsers(u => u.IsActive);`}</code></pre>
             </div>
           </Panel>
+          <CSharpAdditionalQuestions />
+       
         </Collapse>
       </main>
       
@@ -648,3 +651,4 @@ var activeUsers = service.FilterUsers(u => u.IsActive);`}</code></pre>
 };
 
 export default CSharpFundamentals;
+
