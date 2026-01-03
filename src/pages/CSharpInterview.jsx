@@ -1,20 +1,18 @@
 import React from 'react';
-import { Collapse } from 'antd';
+import { Layout, Collapse } from 'antd';
 import './CSharpFundamentals.css';
 import CSharpAdditionalQuestions from './CSharpAdditionalQuestions';
+import CSharpOOPSolid from './CSharpOOPSolid';
 
 const { Panel } = Collapse;
+const { Content, Footer } = Layout;
 
-const CSharpFundamentals = () => {
+const CSharpFundamentals = ({ selected = 'fundamentals' }) => {
   return (
-    <div className="csharp-container">
-      <header className="csharp-header">
-        <h1>🎯 C# Fundamentals</h1>
-        <p>Câu hỏi phỏng vấn chi tiết với ví dụ thực tế</p>
-      </header>
-      
-      <main className="csharp-main">
-        <Collapse accordion>
+    <Layout className="csharp-container">
+      <Content className="csharp-main">
+        {selected === 'fundamentals' ? (
+          <Collapse accordion>
           <Panel header="1. Sự khác biệt giữa Class và Struct? Khi nào nên dùng?" key="1">
             <div className="question-content">
               <h3>Khác biệt chính:</h3>
@@ -639,14 +637,16 @@ var activeUsers = service.FilterUsers(u => u.IsActive);`}</code></pre>
             </div>
           </Panel>
           <CSharpAdditionalQuestions />
-       
-        </Collapse>
-      </main>
+          </Collapse>
+        ) : (
+          <CSharpOOPSolid />
+        )}
+      </Content>
       
-      <footer className="csharp-footer">
+      <Footer className="csharp-footer">
         <p>© 2024 C# Fundamentals Guide - Interview Questions</p>
-      </footer>
-    </div>
+      </Footer>
+    </Layout>
   );
 };
 

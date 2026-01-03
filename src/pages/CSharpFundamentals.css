@@ -25,7 +25,7 @@ body {
 .csharp-header {
   background: linear-gradient(135deg, #512da8 0%, #673ab7 100%);
   color: white;
-  padding: 40px;
+  /* padding removed; Ant Header handles spacing */
   text-align: left;
 }
 
@@ -196,6 +196,21 @@ strong {
   text-align: left;
   color: #666;
   border-top: 3px solid #512da8;
+}
+
+/* Header layout for Ant Design Menu */
+.csharp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 64px;
+}
+
+.csharp-header .logo {
+  color: white;
+  font-weight: 700;
+  font-size: 1.125rem;
 }
 
 @media (max-width: 768px) {

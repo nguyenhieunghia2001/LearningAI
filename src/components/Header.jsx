@@ -1,22 +1,29 @@
 import React from 'react'
-import { Layout, Typography, Input, Button } from 'antd'
-import { SearchOutlined } from '@ant-design/icons'
+import { Layout, Typography, Menu } from 'antd'
 
 const { Header: AntHeader } = Layout
 const { Title } = Typography
 
-const HeaderComponent = () => (
-  <AntHeader style={{ background: 'transparent', padding: '12px 24px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 1000, margin: '0 auto' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <div style={{ width: 44, height: 44, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0f1724', fontWeight: 700 }}>Q</div>
-        <Title level={4} style={{ margin: 0, color: '#fff' }}>Questions & Answers</Title>
+const HeaderComponent = ({ selectedKey = 'fundamentals', onMenuClick }) => (
+  <AntHeader style={{ background: 'linear-gradient(135deg, #512da8 0%, #673ab7 100%)', padding: '12px 24px', borderBottom: 'none', minHeight: 88 }}>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 1200, margin: '0 auto', width: '100%' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div style={{ width: 52, height: 52, background: '#fff', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0f1724', fontWeight: 800, fontSize: 20 }}>C#</div>
+        <Title level={3} style={{ margin: 0, color: '#fff' }}>C# Interview</Title>
       </div>
 
-      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-        <Input placeholder="Tìm câu hỏi..." prefix={<SearchOutlined />} style={{ width: 240 }} />
-        <Button type="primary">Thêm câu hỏi</Button>
-      </div>
+      {/* Site-level navigation menu */}
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        selectedKeys={[selectedKey]}
+        onClick={({ key }) => onMenuClick && onMenuClick(key)}
+        items={[
+          { key: 'fundamentals', label: 'CSharp Fundamentals' },
+          { key: 'oop', label: 'OOP' }
+        ]}
+        style={{ background: 'transparent', color: '#fff', fontSize: 16 }}
+      />
     </div>
   </AntHeader>
 )
