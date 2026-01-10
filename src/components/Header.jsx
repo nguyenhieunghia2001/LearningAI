@@ -1,31 +1,77 @@
-import React from 'react'
-import { Layout, Typography, Menu } from 'antd'
+import React, { useEffect, useState } from 'react'
+import { Menu, Drawer, Button } from 'antd'
+import { MenuOutlined } from '@ant-design/icons'
+import './Header.css'
 
-const { Header: AntHeader } = Layout
-const { Title } = Typography
+const HeaderComponent = ({ selectedKey = 'fundamentals', onMenuClick }) => {
+  const [open, setOpen] = useState(false)
 
-const HeaderComponent = ({ selectedKey = 'fundamentals', onMenuClick }) => (
-  <AntHeader style={{ background: 'linear-gradient(135deg, #512da8 0%, #673ab7 100%)', padding: '12px 24px', borderBottom: 'none', minHeight: 88 }}>
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', maxWidth: 1200, margin: '0 auto', width: '100%' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-        <div style={{ width: 52, height: 52, background: '#fff', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0f1724', fontWeight: 800, fontSize: 20 }}>C#</div>
-        <Title level={3} style={{ margin: 0, color: '#fff' }}>C# Interview</Title>
+  useEffect(() => {
+    // Add a body class so content can shift when sidebar visible on desktop
+    document.body.classList.add('has-left-nav')
+    return () => document.body.classList.remove('has-left-nav')
+  }, [])
+
+  const items = [
+    { key: 'fundamentals', label: 'CSharp Fundamentals' },
+    { key: 'oop', label: 'OOP' },
+    { key: 'collections', label: 'Collections & LINQ' }
+  ]
+
+  const handleMenuClick = ({ key }) => {
+    onMenuClick && onMenuClick(key)
+    setOpen(false)
+  }
+
+  return (
+    <>
+      {/* Left vertical nav for desktop */}
+      <aside className="left-nav">
+        <div className="brand">
+          <div style={{ width: 44, height: 44, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0f1724', fontWeight: 800 }}>C#</div>
+          <div style={{ fontSize: 16 }}>C# Interview</div>
+        </div>
+
+        <div className="menu">
+          <Menu
+            mode="inline"
+            selectedKeys={[selectedKey]}
+            onClick={handleMenuClick}
+            items={items}
+          />
+        </div>
+      </aside>
+
+      {/* Top bar (sticky) with mobile menu button */}
+      <div className="header-top">
+        <div className="title">C# Interview</div>
+        <div>
+          <Button className="mobile-menu-btn" icon={<MenuOutlined />} onClick={() => setOpen(true)} />
+        </div>
       </div>
 
-      {/* Site-level navigation menu */}
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        selectedKeys={[selectedKey]}
-        onClick={({ key }) => onMenuClick && onMenuClick(key)}
-        items={[
-          { key: 'fundamentals', label: 'CSharp Fundamentals' },
-          { key: 'oop', label: 'OOP' }
-        ]}
-        style={{ background: 'transparent', color: '#fff', fontSize: 16 }}
-      />
-    </div>
-  </AntHeader>
-)
+      {/* Drawer for mobile */}
+      <Drawer
+        placement="left"
+        onClose={() => setOpen(false)}
+        open={open}
+        bodyStyle={{ padding: 0 }}
+      >
+        <div style={{ padding: 16 }}>
+          <div className="brand" style={{ marginBottom: 8 }}>
+            <div style={{ width: 36, height: 36, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0f1724', fontWeight: 800 }}>C#</div>
+            <div style={{ fontSize: 15, marginLeft: 8 }}>C# Interview</div>
+          </div>
+          <Menu
+            mode="inline"
+            selectedKeys={[selectedKey]}
+            onClick={handleMenuClick}
+            items={items}
+          />
+        </div>
+      </Drawer>
+    </>
+  )
+}
 
 export default HeaderComponent

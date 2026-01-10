@@ -3,6 +3,7 @@ import { Layout, Collapse } from 'antd';
 import './CSharpFundamentals.css';
 import CSharpAdditionalQuestions from './CSharpAdditionalQuestions';
 import CSharpOOPSolid from './CSharpOOPSolid';
+import CSharpCollections from './CSharpCollections';
 
 const { Panel } = Collapse;
 const { Content, Footer } = Layout;
@@ -11,7 +12,7 @@ const CSharpFundamentals = ({ selected = 'fundamentals' }) => {
   return (
     <Layout className="csharp-container">
       <Content className="csharp-main">
-        {selected === 'fundamentals' ? (
+        {selected === 'fundamentals' && (
           <Collapse accordion>
           <Panel header="1. Sự khác biệt giữa Class và Struct? Khi nào nên dùng?" key="1">
             <div className="question-content">
@@ -638,9 +639,13 @@ var activeUsers = service.FilterUsers(u => u.IsActive);`}</code></pre>
           </Panel>
           <CSharpAdditionalQuestions />
           </Collapse>
-        ) : (
-          <CSharpOOPSolid />
         )}
+
+        {selected === 'oop' && <CSharpOOPSolid />}
+
+        {selected === 'collections' && <CSharpCollections />}
+
+        {selected !== 'fundamentals' && selected !== 'oop' && selected !== 'collections' && <CSharpOOPSolid /> }
       </Content>
       
       <Footer className="csharp-footer">
