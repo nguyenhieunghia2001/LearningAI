@@ -4,6 +4,7 @@ import './CSharpFundamentals.css';
 import CSharpAdditionalQuestions from './CSharpAdditionalQuestions';
 import CSharpOOPSolid from './CSharpOOPSolid';
 import CSharpCollections from './CSharpCollections';
+import AsyncAwaitThreading from './asyncThread/AsyncAwaitThreading';
 
 const { Panel } = Collapse;
 const { Content, Footer } = Layout;
@@ -645,7 +646,9 @@ var activeUsers = service.FilterUsers(u => u.IsActive);`}</code></pre>
 
         {selected === 'collections' && <CSharpCollections />}
 
-        {selected !== 'fundamentals' && selected !== 'oop' && selected !== 'collections' && <CSharpOOPSolid /> }
+        {selected === 'async' && <AsyncAwaitThreading />}
+
+        {selected !== 'fundamentals' && selected !== 'oop' && selected !== 'collections' && selected !== 'async' && <CSharpOOPSolid /> }
       </Content>
       
       <Footer className="csharp-footer">

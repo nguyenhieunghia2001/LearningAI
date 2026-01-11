@@ -1,0 +1,295 @@
+/* CSharpInterviewQA.css */
+
+/* Main container */
+.csharp-interview-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(23,32,38,0.06);
+  overflow: hidden;
+  border: 1px solid rgba(23,32,38,0.04);
+  min-height: 100vh;
+} 
+
+/* Card styling */
+.csharp-interview-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(23,32,38,0.04);
+  padding: var(--space-md);
+} 
+
+/* Title */
+.interview-title {
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--primary-600);
+  font-weight: 700;
+}
+
+.interview-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 14px;
+  opacity: 0.95;
+} 
+
+/* Collapse customization */
+.ant-collapse {
+  border: none;
+  background: transparent;
+}
+
+.ant-collapse > .ant-collapse-item {
+  margin-bottom: var(--space-sm);
+  border: 1px solid rgba(23,32,38,0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.95));
+}
+
+.ant-collapse > .ant-collapse-item:last-child {
+  margin-bottom: 0;
+}
+
+.ant-collapse-header {
+  padding: var(--space-sm) var(--space-md) !important;
+  font-size: 1.05em;
+  font-weight: 700;
+  color: var(--primary-600);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.ant-collapse-header:hover {
+  background: rgba(201,168,74,0.04);
+}
+
+.ant-collapse-content {
+  border-top: 1px solid rgba(23,32,38,0.04);
+}
+
+.ant-collapse-content-box {
+  padding: var(--space-sm) !important;
+} 
+
+/* Code blocks */
+pre {
+  background: #0f1724;
+  color: #f8f8f2;
+  padding: var(--space-sm);
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: var(--space-sm) 0;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--primary-600);
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre code {
+  font-size: 13px;
+  line-height: 1.6;
+  color: inherit;
+} 
+
+/* Warning code blocks */
+pre.warning-code {
+  background: #fff2e8;
+  border: 1px solid #ffbb96;
+  border-left: 4px solid #ff7a45;
+}
+
+/* Recommended code blocks */
+pre.recommended-code {
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-left: 4px solid #52c41a;
+}
+
+/* Normal code blocks */
+pre.normal-code {
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-left: 4px solid #1890ff;
+}
+
+/* Alert customization */
+.ant-alert {
+  border-radius: 6px;
+}
+
+.ant-alert-info {
+  background-color: #e6f4ff;
+  border: 1px solid #91caff;
+}
+
+.ant-alert-success {
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+}
+
+.ant-alert-warning {
+  background-color: #fff7e6;
+  border: 1px solid #ffd591;
+}
+
+.ant-alert-error {
+  background-color: #fff2e8;
+  border: 1px solid #ffbb96;
+}
+
+/* Typography */
+.ant-typography h5 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: var(--primary-600);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.ant-typography h5:first-child {
+  margin-top: 0;
+}
+
+.ant-typography ul {
+  margin: 8px 0;
+  padding-left: 24px;
+}
+
+.ant-typography ul li {
+  margin: 6px 0;
+  line-height: 1.6;
+  color: #262626;
+}
+
+/* Tags */
+.ant-tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Scrollbar styling for code blocks */
+pre::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .csharp-interview-container {
+    padding: 16px;
+  }
+
+  .ant-collapse-header {
+    padding: 12px !important;
+    font-size: 14px;
+  }
+
+  .ant-collapse-content-box {
+    padding: 16px !important;
+  }
+
+  pre code {
+    font-size: 12px;
+  }
+
+  .ant-typography h5 {
+    font-size: 14px;
+  }
+}
+
+/* Animation */
+.ant-collapse-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ant-collapse-item-active {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon colors */
+.anticon-bulb {
+  color: #faad14;
+}
+
+.anticon-warning {
+  color: #ff4d4f;
+}
+
+.anticon-check-circle {
+  color: #52c41a;
+}
+
+.anticon-code {
+  color: #1890ff;
+}
+
+/* Space between sections */
+.section-divider {
+  margin: 24px 0;
+  border-top: 1px dashed #d9d9d9;
+}
+
+/* Highlight important text */
+.highlight-text {
+  background: #fff1b8;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+/* Badge for new content */
+.new-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+
+/* Print styles */
+@media print {
+  .csharp-interview-container {
+    padding: 0;
+    background: white;
+  }
+
+  .ant-collapse-item {
+    page-break-inside: avoid;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+  }
+
+  pre {
+    page-break-inside: avoid;
+    border: 1px solid #000;
+  }
+
+  .ant-alert {
+    border: 1px solid #000;
+  }
+}

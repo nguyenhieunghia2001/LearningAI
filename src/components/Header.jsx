@@ -15,7 +15,8 @@ const HeaderComponent = ({ selectedKey = 'fundamentals', onMenuClick }) => {
   const items = [
     { key: 'fundamentals', label: 'CSharp Fundamentals' },
     { key: 'oop', label: 'OOP' },
-    { key: 'collections', label: 'Collections & LINQ' }
+    { key: 'collections', label: 'Collections & LINQ' },
+    { key: 'async', label: 'Async/Await & Threading' }
   ]
 
   const handleMenuClick = ({ key }) => {
